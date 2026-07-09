@@ -417,7 +417,7 @@ export default function ProfessorPage() {
   const fetchSubjectsByStream = async () => {
     try {
       const res = await axios.get(
-        "https://examatrixlive.onrender.com/dropdown/subjects/${formData.stream}"
+        `https://examatrixlive.onrender.com/dropdown/subjects/${formData.stream}`
       );
 
       const data = res.data;
