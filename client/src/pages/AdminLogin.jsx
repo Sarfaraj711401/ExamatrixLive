@@ -24,7 +24,7 @@ export default function AdminLogin() {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:5000/admin/login", {
+      const res = await axios.post("https://examatrixlive.onrender.com/admin/login", {
         email,
         password,
         role,

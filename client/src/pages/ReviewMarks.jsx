@@ -28,7 +28,7 @@ export default function ReviewMarks() {
   const loadSavedMarks = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/marks/${paper.id}`
+        `https://examatrixlive.onrender.com/marks/${paper.id}`
       );
 
       const savedMarks = res.data;
@@ -79,7 +79,7 @@ export default function ReviewMarks() {
         } else {
 
           const res = await axios.get(
-            `http://localhost:5000/marks/grade/${value}`
+            `https://examatrixlive.onrender.com/marks/grade/${value}`
           );
 
           updated[index].grade =
@@ -102,11 +102,11 @@ export default function ReviewMarks() {
           updated[index].remarks = "";
         } else {
           const gradeRes = await axios.get(
-            `http://localhost:5000/marks/grade/${value}`
+            `https://examatrixlive.onrender.com/marks/grade/${value}`
           );
 
           const remarkRes = await axios.get(
-            `http://localhost:5000/marks/remark/${value}`
+            `https://examatrixlive.onrender.com/marks/remark/${value}`
           );
 
           updated[index].grade = gradeRes.data.grade;
@@ -124,7 +124,7 @@ export default function ReviewMarks() {
     index
   ) => {
     try {
-      await axios.post("http://localhost:5000/marks/save", {
+      await axios.post("https://examatrixlive.onrender.com/marks/save", {
         assignment_id: paper.id,
         roll_no: student.roll_no,
         marks: student.marks,
@@ -157,7 +157,7 @@ export default function ReviewMarks() {
   ) => {
     try {
       await axios.put(
-        `http://localhost:5000/marks/update/${paper.id}/${student.roll_no}`,
+        `https://examatrixlive.onrender.com/marks/update/${paper.id}/${student.roll_no}`,
         {
           marks: student.marks,
           remarks: student.remarks
@@ -192,7 +192,7 @@ export default function ReviewMarks() {
 
         if (!student.saved) {
 
-          await axios.post("http://localhost:5000/marks/save", {
+          await axios.post("https://examatrixlive.onrender.com/marks/save", {
             assignment_id: paper.id,
             roll_no: student.roll_no,
             marks: student.marks,
@@ -230,7 +230,7 @@ export default function ReviewMarks() {
       for (let student of filteredStudents) {
 
         await axios.put(
-          `http://localhost:5000/marks/update/${paper.id}/${student.roll_no}`,
+          `https://examatrixlive.onrender.com/marks/update/${paper.id}/${student.roll_no}`,
           {
             marks: student.marks,
             remarks: student.remarks

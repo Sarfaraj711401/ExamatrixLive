@@ -19,7 +19,7 @@ export default function ReviewApplications() {
   // Fetch pending review applications strictly from DB
   const fetchReviewApplications = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/admin/reviews/pending");
+      const res = await axios.get("https://examatrixlive.onrender.com/admin/reviews/pending");
       setApplications(res.data);
     } catch (error) {
       console.log("Error fetching reviews:", error);
@@ -29,7 +29,7 @@ export default function ReviewApplications() {
   // Fetch Professors for the Dropdown
   const fetchCommitteeMembers = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/admin/reviews/committee");
+      const res = await axios.get("https://examatrixlive.onrender.com/admin/reviews/committee");
       setCommitteeMembers(res.data);
     } catch (error) {
       console.log("Error fetching committee members:", error);
@@ -49,7 +49,7 @@ export default function ReviewApplications() {
     }
 
     try {
-      await axios.post("http://localhost:5000/admin/reviews/assign", {
+      await axios.post("https://examatrixlive.onrender.com/admin/reviews/assign", {
         application_id: selectedApp.id,
         professor_id: selectedProfessor
       });

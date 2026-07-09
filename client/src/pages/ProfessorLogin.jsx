@@ -26,7 +26,7 @@ export default function ProfessorLogin() {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/professor/login",
+        "https://examatrixlive.onrender.com/professor/login",
         { email, password }
       );
 

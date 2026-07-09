@@ -78,7 +78,7 @@ export default function ProfessorPage() {
   const fetchProfessors = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:5000/admin/professors"
+        "https://examatrixlive.onrender.com/admin/professors"
       );
 
       setProfessors(res.data);
@@ -245,7 +245,7 @@ export default function ProfessorPage() {
       if (editId) {
 
         await axios.put(
-          `http://localhost:5000/admin/update-professor/${editId}`,
+          `https://examatrixlive.onrender.com/admin/update-professor/${editId}`,
           form
         );
 
@@ -256,7 +256,7 @@ export default function ProfessorPage() {
       else {
 
         await axios.post(
-          "http://localhost:5000/admin/add-professor",
+          "https://examatrixlive.onrender.com/admin/add-professor",
           form
         );
 
@@ -373,7 +373,7 @@ export default function ProfessorPage() {
       if (!window.confirm("Delete this professor?")) return;
 
       await axios.delete(
-        `http://localhost:5000/admin/delete-professor/${id}`
+        `https://examatrixlive.onrender.com/admin/delete-professor/${id}`
       );
 
       alert("Professor Deleted Successfully ✅");
@@ -390,11 +390,11 @@ export default function ProfessorPage() {
     try {
 
       const designationRes = await axios.get(
-        "http://localhost:5000/dropdown/designations"
+        "https://examatrixlive.onrender.com/dropdown/designations"
       );
 
       const streamRes = await axios.get(
-        "http://localhost:5000/dropdown/streams"
+        "https://examatrixlive.onrender.com/dropdown/streams"
       );
 
       setDesignations(designationRes.data);
@@ -417,7 +417,7 @@ export default function ProfessorPage() {
   const fetchSubjectsByStream = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/dropdown/subjects/${formData.stream}`
+        `https://examatrixlive.onrender.com/dropdown/subjects/${formData.stream}`
       );
 
       const data = res.data;
@@ -499,7 +499,7 @@ export default function ProfessorPage() {
                         formData.photo instanceof File
                           ? URL.createObjectURL(formData.photo)
                           : formData.photo
-                            ? `http://localhost:5000/uploads/${formData.photo}`
+                            ? `https://examatrixlive.onrender.com/uploads/${formData.photo}`
                             : "https://via.placeholder.com/100"
                       }
                       alt="Professor"
@@ -576,7 +576,7 @@ export default function ProfessorPage() {
                       src={
                         formData.photo instanceof File
                           ? URL.createObjectURL(formData.photo)
-                          : `http://localhost:5000/uploads/${formData.photo}`
+                          : `https://examatrixlive.onrender.com/uploads/${formData.photo}`
                       }
                       alt="Preview"
                       style={styles.fullImage}
@@ -950,7 +950,7 @@ export default function ProfessorPage() {
                     <td style={styles.td}>
                       <td>
                         <img
-                          src={`http://localhost:5000/uploads/${p.photo}`}
+                          src={`https://examatrixlive.onrender.com/uploads/${p.photo}`}
                           alt=""
                           style={styles.photo}
                         />
@@ -1013,7 +1013,7 @@ export default function ProfessorPage() {
               </button>
 
               <img
-                src={`http://localhost:5000/uploads/${selectedProfessor.photo}`}
+                src={`https://examatrixlive.onrender.com/uploads/${selectedProfessor.photo}`}
                 alt="Professor"
                 style={styles.previewPhoto}
               />

@@ -75,7 +75,7 @@ export default function AdminPanel() {
   const fetchProfessors = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:5000/admin/professors"
+        "https://examatrixlive.onrender.com/admin/professors"
       );
       setProfessors(res.data);
     } catch (error) {
@@ -87,7 +87,7 @@ export default function AdminPanel() {
   const fetchAssignedPapers = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:5000/assignment/all"
+        "https://examatrixlive.onrender.com/assignment/all"
       );
       setAssignedPapers(res.data);
     } catch (error) {
@@ -105,7 +105,7 @@ export default function AdminPanel() {
 
     try {
       await axios.delete(
-        `http://localhost:5000/assignment/delete/${id}`
+        `https://examatrixlive.onrender.com/assignment/delete/${id}`
       );
 
       alert("Assigned Paper Removed Successfully ✅");
@@ -229,7 +229,7 @@ export default function AdminPanel() {
     try {
       if (editingPaperId) {
         await axios.put(
-          `http://localhost:5000/assignment/update/${editingPaperId}`,
+          `https://examatrixlive.onrender.com/assignment/update/${editingPaperId}`,
           formData
         );
 
@@ -238,7 +238,7 @@ export default function AdminPanel() {
 
       } else {
         await axios.post(
-          "http://localhost:5000/assignment/assign-paper",
+          "https://examatrixlive.onrender.com/assignment/assign-paper",
           formData
         );
 
@@ -282,13 +282,13 @@ export default function AdminPanel() {
         creditRes,
         streamRes
       ] = await Promise.all([
-        axios.get("http://localhost:5000/dropdown/years"),
-        axios.get("http://localhost:5000/dropdown/semesters"),
-        axios.get("http://localhost:5000/dropdown/exam-types"),
-        axios.get("http://localhost:5000/dropdown/academic-years"),
-        axios.get("http://localhost:5000/dropdown/exam-type-rules"),
-        axios.get("http://localhost:5000/dropdown/credit-points"),
-        axios.get("http://localhost:5000/dropdown/streams")
+        axios.get("https://examatrixlive.onrender.com/dropdown/years"),
+        axios.get("https://examatrixlive.onrender.com/dropdown/semesters"),
+        axios.get("https://examatrixlive.onrender.com/dropdown/exam-types"),
+        axios.get("https://examatrixlive.onrender.com/dropdown/academic-years"),
+        axios.get("https://examatrixlive.onrender.com/dropdown/exam-type-rules"),
+        axios.get("https://examatrixlive.onrender.com/dropdown/credit-points"),
+        axios.get("https://examatrixlive.onrender.com/dropdown/streams")
       ]);
 
       setYears(yearRes.data);

@@ -29,12 +29,12 @@ export default function AdminDashboard() {
 
       /* FETCH PROFESSORS */
       const profRes = await axios.get(
-        "http://localhost:5000/admin/professors"
+        "https://examatrixlive.onrender.com/admin/professors"
       );
 
       /* FETCH ASSIGNED PAPERS */
       const paperRes = await axios.get(
-        "http://localhost:5000/assignment/all"
+        "https://examatrixlive.onrender.com/assignment/all"
       );
 
       /* SAFE ARRAY CHECK */

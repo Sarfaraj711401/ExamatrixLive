@@ -30,7 +30,7 @@ export default function ProfessorDashboard() {
     }
 
     axios
-      .get(`http://localhost:5000/professor/assigned/${prof.id}`)
+      .get(`https://examatrixlive.onrender.com/professor/assigned/${prof.id}`)
       .then((res) => setPapers(res.data))
       .catch((err) => console.log("Error fetching papers:", err));
   }, [navigate, prof]);
@@ -97,7 +97,7 @@ export default function ProfessorDashboard() {
             {/* Profile */}
             <div style={styles.profileCard}>
               <img
-                src={`http://localhost:5000/uploads/${prof.photo}`}
+                src={`https://examatrixlive.onrender.com/uploads/${prof.photo}`}
                 alt="profile"
                 style={styles.profileImage}
               />

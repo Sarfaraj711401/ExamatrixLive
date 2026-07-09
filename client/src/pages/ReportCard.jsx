@@ -22,7 +22,7 @@ export default function ReportCard() {
 
         try {
             //         // 1. Fetch Student Details
-            const studentRes = await axios.get(`http://localhost:5000/admin/student/search?query=${searchTerm}`);
+            const studentRes = await axios.get(`https://examatrixlive.onrender.com/admin/student/search?query=${searchTerm}`);
 
             if (!studentRes.data || studentRes.data.length === 0) {
                 setError("No student found with that Registration Number or ABC ID.");
@@ -34,7 +34,7 @@ export default function ReportCard() {
             setStudent(foundStudent);
 
             //         // 2. Fetch Student's Marks across all semesters
-            const marksRes = await axios.get(`http://localhost:5000/admin/student/${foundStudent.exam_roll}/marks`);
+            const marksRes = await axios.get(`https://examatrixlive.onrender.com/admin/student/${foundStudent.exam_roll}/marks`);
             setAcademicRecords(marksRes.data);
 
         } catch (err) {

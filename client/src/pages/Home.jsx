@@ -57,7 +57,7 @@ export default function Home() {
   useEffect(() => {
 
     axios
-      .get("http://localhost:5000/dropdown/login-roles")
+      .get("https://examatrixlive.onrender.com/dropdown/login-roles")
       .then((res) => {
 
         setRoles(res.data);
@@ -85,7 +85,7 @@ export default function Home() {
       if (role === "Professor") {
 
         const res = await axios.post(
-          "http://localhost:5000/professor/login",
+          "https://examatrixlive.onrender.com/professor/login",
           {
             email,
             password,
@@ -106,7 +106,7 @@ export default function Home() {
       else {
 
         const res = await axios.post(
-          "http://localhost:5000/admin/login",
+          "https://examatrixlive.onrender.com/admin/login",
           {
             email,
             password,

@@ -21,7 +21,7 @@ export default function StudentModule() {
 
     const fetchStudents = async () => {
         try {
-            const res = await axios.get("http://localhost:5000/admin/students").catch(() => ({ data: [] }));
+            const res = await axios.get("https://examatrixlive.onrender.com/admin/students").catch(() => ({ data: [] }));
             setStudents(res.data);
         } catch (error) {
             console.log(error);
@@ -46,7 +46,7 @@ export default function StudentModule() {
     const handleDelete = async (id) => {
         if (!window.confirm("Are you sure you want to delete this student record?")) return;
         try {
-            await axios.delete(`http://localhost:5000/admin/students/${id}`);
+            await axios.delete(`https://examatrixlive.onrender.com/admin/students/${id}`);
             alert("Student Deleted ✅");
             fetchStudents();
         } catch (error) {
@@ -58,10 +58,10 @@ export default function StudentModule() {
         e.preventDefault();
         try {
             if (editingId) {
-                await axios.put(`http://localhost:5000/admin/students/${editingId}`, formData);
+                await axios.put(`https://examatrixlive.onrender.com/admin/students/${editingId}`, formData);
                 alert("Student Updated ✅");
             } else {
-                await axios.post("http://localhost:5000/admin/students", formData);
+                await axios.post("https://examatrixlive.onrender.com/admin/students", formData);
                 alert("Student Registered ✅");
             }
             setShowModal(false);

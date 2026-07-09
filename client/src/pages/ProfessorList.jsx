@@ -32,7 +32,7 @@ export default function ProfessorList() {
 
   const fetchProfessors = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/admin/professors");
+      const res = await axios.get("https://examatrixlive.onrender.com/admin/professors");
       setProfessors(res.data);
     } catch (error) {
       console.log(error);
@@ -68,7 +68,7 @@ export default function ProfessorList() {
   const handleFinalUpdate = async (id) => {
     try {
       await axios.put(
-        `http://localhost:5000/admin/update-professor/${id}`,
+        `https://examatrixlive.onrender.com/admin/update-professor/${id}`,
         editForm
       );
 
@@ -85,7 +85,7 @@ export default function ProfessorList() {
 
     try {
       await axios.delete(
-        `http://localhost:5000/admin/delete-professor/${id}`
+        `https://examatrixlive.onrender.com/admin/delete-professor/${id}`
       );
 
       alert("Deleted Successfully ❌");
@@ -148,7 +148,7 @@ export default function ProfessorList() {
                 </button>
 
                 <img
-                  src={`http://localhost:5000/uploads/${selectedProfessor.photo}`}
+                  src={`https://examatrixlive.onrender.com/uploads/${selectedProfessor.photo}`}
                   alt="Professor"
                   style={styles.viewPhoto}
                 />
@@ -264,7 +264,7 @@ export default function ProfessorList() {
                 <tr key={p.id} style={styles.tr}>
                   <td>
                     <img
-                      src={`http://localhost:5000/uploads/${p.photo}`}
+                      src={`https://examatrixlive.onrender.com/uploads/${p.photo}`}
                       alt=""
                       style={styles.photo}
                     />
