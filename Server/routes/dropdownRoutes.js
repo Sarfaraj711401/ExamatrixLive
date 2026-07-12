@@ -145,24 +145,34 @@ router.get("/streams", (req, res) => {
 });
 
 router.get("/subjects/:stream", (req, res) => {
+
   const stream = req.params.stream;
+
+  console.log("========================");
+  console.log("STREAM =", stream);
 
   db.query(
     `
-    SELECT SubType, Subject 
-    FROM SubjectMaster 
-    WHERE Stream=? AND IsActive='T'
-    `,
+        SELECT SubType, Subject
+        FROM subjectmaster
+        WHERE Stream=? AND IsActive='T'
+        `,
     [stream],
     (err, result) => {
+
+      console.log("ERROR =", err);
+
+      console.log("RESULT =", result);
+
       if (err) {
-        console.log(err);
         return res.status(500).json(err);
       }
 
       res.json(result);
+
     }
   );
+
 });
 
 /* =========================

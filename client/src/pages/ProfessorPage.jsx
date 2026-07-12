@@ -415,27 +415,46 @@ export default function ProfessorPage() {
 
 
   const fetchSubjectsByStream = async () => {
+
     try {
+
+      console.log("Selected Stream =", formData.stream);
+
       const res = await axios.get(
         `https://examatrixlive.onrender.com/dropdown/subjects/${formData.stream}`
       );
 
+      console.log("API DATA =", res.data);
+
       const data = res.data;
 
-      // group by SubType
       const grouped = data.reduce((acc, item) => {
-        if (!acc[item.SubType]) acc[item.SubType] = [];
+
+        if (!acc[item.SubType]) {
+          acc[item.SubType] = [];
+        }
+
         acc[item.SubType].push(item.Subject);
+
         return acc;
+
       }, {});
 
+      console.log(grouped);
+
       setSubjectsByType(grouped);
+
       setAvailableTypes(Object.keys(grouped));
 
-    } catch (err) {
-      console.log(err);
     }
-  };
+
+    catch (err) {
+
+      console.log(err);
+
+    }
+
+  }
 
 
 
